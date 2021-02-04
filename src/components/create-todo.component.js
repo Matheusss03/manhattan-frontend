@@ -114,20 +114,64 @@ export default class CreateTodo extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Tipo: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.tipo}
-                                onChange={this.onChangeTipo}
-                                />
-                    </div>
-                    <div className="form-group">
                         <label>Email: </label>
                         <input  type="email"
                                 className="form-control"
                                 value={this.state.email}
                                 onChange={this.onChangeEmail}
                                 />
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipoOpcoes" 
+                                    id="tipoResponsavel" 
+                                    value="Responsável Técnico"
+                                    checked={this.state.tipo==='Responsável Técnico'} 
+                                    onChange={this.onChangeTipo}
+                                    />
+                            <label className="form-check-label">Responsável Técnico</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipoOpcoes" 
+                                    id="tipoSupervisor" 
+                                    value="Supervisor de Radioproteção"
+                                    checked={this.state.tipo==='Supervisor de Radioproteção'} 
+                                    onChange={this.onChangeTipo}
+                                    />
+                            <label className="form-check-label">Supervisor de Radioproteção</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipoOpcoes" 
+                                    id="tipoOperador" 
+                                    value="Operador"
+                                    checked={this.state.tipo==='Operador'} 
+                                    onChange={this.onChangeTipo}
+                                    />
+                            <label className="form-check-label">Operador</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipoOpcoes" 
+                                    id="tipoTitular" 
+                                    value="Titular"
+                                    checked={this.state.tipo==='Titular'} 
+                                    onChange={this.onChangeTipo}
+                                    />
+                            <label className="form-check-label">Titular</label>
+                        </div>
                     </div>
                     <br/>
                     <div className="form-group">
