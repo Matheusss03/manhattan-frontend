@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class CreateTodo extends Component {
+export default class CriaDiarioCuriometro extends Component {
 
     constructor(props) {
         super(props)
@@ -150,8 +150,8 @@ export default class CreateTodo extends Component {
                         <label>Data da Alta Tensão: </label>
                         <input  type="date"
                                 className="form-control"
-                                value={this.state.bario}
-                                onChange={this.onChangeBario}
+                                value={this.state.dataAltaTensao}
+                                onChange={this.onChangeDataAltaTensao}
                                 />
                     </div>
                     <div className="form-group">
@@ -188,7 +188,7 @@ export default class CreateTodo extends Component {
                     </div>
                     <br/>
                     <div className="form-group">
-                        <input type="submit" value="Criar Medidor de Atividade" className="btn btn-primary" />
+                        <input type="submit" value="Criar Medida de Atividade" className="btn btn-primary" />
                     </div>
                 </form>
             </div>

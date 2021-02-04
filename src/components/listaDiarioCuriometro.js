@@ -7,17 +7,17 @@ moment.locale('pt-br')
 const MedidorDeAtividade = props => (
     <tr>
         <td>{props.curiometro.ajusteZero}</td>
-        <td>{moment(props.curiometro.dataAjusteZero).locale('pt-br').format('l')}</td>
+        <td>{props.curiometro.dataAjusteZero}</td>
         <td>{props.curiometro.altaTensao}</td>
-        <td>{moment(props.curiometro.dataAltaTensao).format('l')}</td>
+        <td>{props.curiometro.dataAltaTensao}</td>
         <td>{props.curiometro.cobalto}</td>
         <td>{props.curiometro.bario}</td>
         <td>{props.curiometro.cesio}</td>
-        <td>{moment(props.curiometro.dataRepetibilidade).format('l')}</td>
+        <td>{props.curiometro.dataRepetibilidade}</td>
     </tr>
 )
 
-export default class diariosList extends Component {
+export default class DiariosList extends Component {
 
     constructor(props) {
         super(props);
@@ -25,7 +25,7 @@ export default class diariosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/curiometro/todos/')
+        axios.get('http://localhost:3000/curiometro/todos')
             .then(response => {
                 this.setState({ diarios: response.data });
             })
@@ -35,8 +35,8 @@ export default class diariosList extends Component {
     }
 
     curiometroList() {
-        return this.state.diarios.map(function(currentUser, i){
-            return <MedidorDeAtividade curiometro={currentUser} key={i} />;
+        return this.state.diarios.map(function(currentDiario, i){
+            return <MedidorDeAtividade curiometro={currentDiario} key={i} />;
         })
     }
 
