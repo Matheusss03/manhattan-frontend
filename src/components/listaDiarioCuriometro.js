@@ -25,7 +25,7 @@ export default class DiariosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/curiometro/todos')
+        axios.get('https://backend-manhattan.herokuapp.com/curiometro/todos')
             .then(response => {
                 this.setState({ diarios: response.data });
             })

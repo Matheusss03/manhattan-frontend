@@ -18,7 +18,7 @@ export default class UsuariosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/auth/')
+        axios.get('https://backend-manhattan.herokuapp.com/auth/')
             .then(response => {
                 this.setState({ usuarios: response.data });
             })

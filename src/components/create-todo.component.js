@@ -70,7 +70,7 @@ export default class CreateTodo extends Component {
             email: this.state.email,
         }
   
-        axios.post('http://localhost:3000/auth/register', newUser)
+        axios.post('https://backend-manhattan.herokuapp.com/auth/register', newUser)
             .then(res => console.log(res.data))
             .catch(error => error.response)
   

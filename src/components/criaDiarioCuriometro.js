@@ -100,7 +100,7 @@ export default class CriaDiarioCuriometro extends Component {
             dataRepetibilidade: this.state.dataRepetibilidade,
         }
   
-        axios.post('http://localhost:3000/curiometro/add', newDiario)
+        axios.post('https://backend-manhattan.herokuapp.com/curiometro/add', newDiario)
             .then(res => console.log(res.data))
             .catch(error => error.response)
   
