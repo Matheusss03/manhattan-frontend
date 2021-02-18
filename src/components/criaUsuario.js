@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { cpfMask, celMask, cnenMask } from '../utils/masks'
 
 export default class CreateTodo extends Component {
 
@@ -11,6 +12,9 @@ export default class CreateTodo extends Component {
         this.onChangeSenha = this.onChangeSenha.bind(this)
         this.onChangeTipo = this.onChangeTipo.bind(this)
         this.onChangeEmail = this.onChangeEmail.bind(this)
+        this.onChangeCnen = this.onChangeCnen.bind(this)
+        this.onChangeCelular = this.onChangeCelular.bind(this)
+        this.onChangeConselho = this.onChangeConselho.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
   
         this.state = {
@@ -18,7 +22,10 @@ export default class CreateTodo extends Component {
             cpf: '',
             senha: '',
             tipo: '',
-            email: ''
+            email: '',
+            cnen: '',
+            celular: '',
+            conselho: '',
         }
     }
   
@@ -30,7 +37,7 @@ export default class CreateTodo extends Component {
   
     onChangeCPF(e) {
         this.setState({
-            cpf: e.target.value
+            cpf: cpfMask(e.target.value)
         });
     }
   
@@ -51,16 +58,27 @@ export default class CreateTodo extends Component {
           email: e.target.value
       });
     }
+
+    onChangeCnen(e) {
+      this.setState({
+          cnen: cnenMask(e.target.value)
+      });
+    }
+
+    onChangeCelular(e) {
+      this.setState({
+          celular: celMask(e.target.value)
+      });
+    }
+
+    onChangeConselho(e) {
+      this.setState({
+          conselho: e.target.value
+      });
+    }
   
     onSubmit(e) {
         e.preventDefault();
-  
-        console.log(`Form submitted:`)
-        console.log(`Nome: ${this.state.nome}`)
-        console.log(`CPF: ${this.state.cpf}`)
-        console.log(`Senha: ${this.state.senha}`)
-        console.log(`Tipo: ${this.state.tipo}`)
-        console.log(`E-mail: ${this.state.email}`)
   
         const newUser = {
             nome: this.state.nome,
@@ -68,6 +86,9 @@ export default class CreateTodo extends Component {
             senha: this.state.senha,
             tipo: this.state.tipo,
             email: this.state.email,
+            cnen: this.state.cnen,
+            celular: this.state.celular,
+            conselho: this.state.conselho,
         }
   
         axios.post('https://backend-manhattan.herokuapp.com/auth/register', newUser)
@@ -80,6 +101,9 @@ export default class CreateTodo extends Component {
             senha: '',
             tipo: '',
             email: '',
+            cnen: '',
+            celular: '',
+            conselho: '',
         })
     }
   
@@ -89,37 +113,71 @@ export default class CreateTodo extends Component {
                 <h3>Cadastrar Novo Usuário</h3>
                 <br/>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Nome: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.nome}
-                                onChange={this.onChangeNome}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-4">
+                            <label>Nome: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.nome}
+                                    onChange={this.onChangeNome}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <label>CPF: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.cpf}
+                                    onChange={this.onChangeCPF}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>CPF: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.cpf}
-                                onChange={this.onChangeCPF}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-4">
+                            <label>Email: </label>
+                            <input  type="email"
+                                    className="form-control"
+                                    value={this.state.email}
+                                    onChange={this.onChangeEmail}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <label>Senha: </label>
+                            <input  type="password"
+                                    className="form-control"
+                                    value={this.state.senha}
+                                    onChange={this.onChangeSenha}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Senha: </label>
-                        <input  type="password"
-                                className="form-control"
-                                value={this.state.senha}
-                                onChange={this.onChangeSenha}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-3">
+                            <label>CNEN: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.cnen}
+                                    onChange={this.onChangeCnen}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                                <label>Conselho: </label>
+                                <select id="inputState" className="form-control">
+                                    <option selected>Selecione...</option>
+                                    <option value='CRM' selected={this.state.conselho==='CRM'} onChange={this.onChangeConselho}>CRM</option>
+                                    <option value='CRF' selected={this.state.conselho==='CRF'} onChange={this.onChangeConselho}>CRF</option>
+                                    <option value='COREN' selected={this.state.conselho==='COREN'} onChange={this.onChangeConselho}>COREN</option>
+                                    <option value='CRBM' selected={this.state.conselho==='CRBM'} onChange={this.onChangeConselho}>CRBM</option>
+                                </select>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Email: </label>
-                        <input  type="email"
-                                className="form-control"
-                                value={this.state.email}
-                                onChange={this.onChangeEmail}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-3">
+                            <label>Celular: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.celular}
+                                    onChange={this.onChangeCelular}
+                                    />
+                        </div>
                     </div>
                     <div className="form-group">
                         <div className="form-check form-check-inline">

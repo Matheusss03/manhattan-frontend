@@ -7,24 +7,26 @@ export default class CriaDiarioCuriometro extends Component {
         super(props)
   
         this.onChangeAjusteZero = this.onChangeAjusteZero.bind(this)
-        this.onChangeDataAjusteZero = this.onChangeDataAjusteZero.bind(this)
+        this.onChangeBg = this.onChangeBg.bind(this)
         this.onChangeAltaTensao = this.onChangeAltaTensao.bind(this)
-        this.onChangeDataAltaTensao = this.onChangeDataAltaTensao.bind(this)
+        this.onChangeVazio = this.onChangeVazio.bind(this)
+        this.onChangeCheio = this.onChangeCheio.bind(this)
         this.onChangeBario = this.onChangeBario.bind(this)
         this.onChangeCesio = this.onChangeCesio.bind(this)
         this.onChangeCobalto = this.onChangeCobalto.bind(this)
-        this.onChangeDataRepetibilidade = this.onChangeDataRepetibilidade.bind(this)
+        this.onChangeData = this.onChangeData.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
   
         this.state = {
             ajusteZero: '',
-            dataAjusteZero: '',
+            bg: '',
             altaTensao: '',
-            dataAltaTensao: '',
+            vazio: '',
+            cheio: '',
             bario: '',
             cesio: '',
             cobalto: '',
-            dataRepetibilidade: ''
+            data: ''
         }
     }
   
@@ -34,9 +36,9 @@ export default class CriaDiarioCuriometro extends Component {
         });
     }
   
-    onChangeDataAjusteZero(e) {
+    onChangeBg(e) {
         this.setState({
-            dataAjusteZero: e.target.value
+            bg: e.target.value
         });
     }
   
@@ -46,11 +48,17 @@ export default class CriaDiarioCuriometro extends Component {
         });
     }
   
-    onChangeDataAltaTensao(e) {
+    onChangeVazio(e) {
       this.setState({
-          dataAltaTensao: e.target.value
+          vazio: e.target.value
       });
     }
+
+    onChangeCheio(e) {
+        this.setState({
+            cheio: e.target.value
+        });
+      }
   
     onChangeBario(e) {
       this.setState({
@@ -70,34 +78,35 @@ export default class CriaDiarioCuriometro extends Component {
         });
     }
 
-    onChangeDataRepetibilidade(e) {
+    onChangeData(e) {
         this.setState({
-            dataRepetibilidade: e.target.value
+            data: e.target.value
         });
     }
 
     onSubmit(e) {
         e.preventDefault();
-  
+  /*
         console.log(`Form submitted:`)
         console.log(`Ajuste do Zero: ${this.state.ajusteZero}`)
-        console.log(`Data Ajuste do Zero: ${this.state.dataAjusteZero}`)
+        console.log(`Data Ajuste do Zero: ${this.state.bg}`)
         console.log(`Alta Tensão: ${this.state.altaTensao}`)
-        console.log(`Data Alta Tensão: ${this.state.dataAltaTensao}`)
+        console.log(`Data Alta Tensão: ${this.state.vazio}`)
         console.log(`Bario: ${this.state.bario}`)
         console.log(`Césio: ${this.state.cesio}`)
         console.log(`Cobalto: ${this.state.cobalto}`)
-        console.log(`Data Repetibilidade: ${this.state.dataRepetibilidade}`)
-  
+        console.log(`Data Repetibilidade: ${this.state.data}`)
+  */
         const newDiario = {
             ajusteZero: this.state.ajusteZero,
-            dataAjusteZero: this.state.dataAjusteZero,
+            bg: this.state.bg,
             altaTensao: this.state.altaTensao,
-            dataAltaTensao: this.state.dataAltaTensao,
+            vazio: this.state.vazio,
+            cheio: this.state.cheio,
             bario: this.state.bario,
             cesio: this.state.cesio,
             cobalto: this.state.cobalto,
-            dataRepetibilidade: this.state.dataRepetibilidade,
+            data: this.state.data,
         }
   
         axios.post('https://backend-manhattan.herokuapp.com/curiometro/add', newDiario)
@@ -106,13 +115,14 @@ export default class CriaDiarioCuriometro extends Component {
   
         this.setState({
             ajusteZero: '',
-            dataAjusteZero: '',
+            bg: '',
             altaTensao: '',
-            dataAltaTensao: '',
+            vazio: '',
+            cheio: '',
             bario: '',
             cesio: '',
             cobalto: '',
-            dataRepetibilidade: ''
+            data: ''
         })
     }
   
@@ -122,69 +132,85 @@ export default class CriaDiarioCuriometro extends Component {
                 <h3>Cadastrar Nova Medida de Atividade</h3>
                 <br/>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Ajuste do Zero: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.ajusteZero}
-                                onChange={this.onChangeAjusteZero}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-3">
+                            <label>Ajuste do Zero: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.ajusteZero}
+                                    onChange={this.onChangeAjusteZero}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <label>Radiação de Fundo: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.bg}
+                                    onChange={this.onChangeBg}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <label>Alta Tensão: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.altaTensao}
+                                    onChange={this.onChangeAltaTensao}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Data do Ajuste do Zero: </label>
-                        <input  type="date"
-                                className="form-control"
-                                value={this.state.dataAjusteZero}
-                                onChange={this.onChangeDataAjusteZero}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-3">
+                            <label>Contaminação Poço Vazio: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.vazio}
+                                    onChange={this.onChangeVazio}
+                                    />
+                        </div>
+                        <div className="form-group col-md-3">
+                            <label>Contaminação Poço Cheio: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.text}
+                                    onChange={this.onChangeCheio}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Alta Tensão: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.altaTensao}
-                                onChange={this.onChangeAltaTensao}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-2">
+                            <label>Bário: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.bario}
+                                    onChange={this.onChangeBario}
+                                    />
+                        </div>
+                        <div className="form-group col-md-2">
+                            <label>Césio: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.cesio}
+                                    onChange={this.onChangeCesio}
+                                    />
+                        </div>
+                        <div className="form-group col-md-2">
+                            <label>Cobalto: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.cobalto}
+                                    onChange={this.onChangeCobalto}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Data da Alta Tensão: </label>
-                        <input  type="date"
-                                className="form-control"
-                                value={this.state.dataAltaTensao}
-                                onChange={this.onChangeDataAltaTensao}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Bário: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.bario}
-                                onChange={this.onChangeBario}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Césio: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.cesio}
-                                onChange={this.onChangeCesio}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Cobalto: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.cobalto}
-                                onChange={this.onChangeCobalto}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Data Repetibilidade: </label>
-                        <input  type="date"
-                                className="form-control"
-                                value={this.state.dataRepetibilidade}
-                                onChange={this.onChangeDataRepetibilidade}
-                                />
+                    <div class="form-row">
+                        <div className="form-group col-md-2">
+                            <label>Data: </label>
+                            <input  type="date"
+                                    className="form-control"
+                                    value={this.state.data}
+                                    onChange={this.onChangeData}
+                                    />
+                        </div>
                     </div>
                     <br/>
                     <div className="form-group">
