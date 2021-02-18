@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 moment.locale('pt-br')
@@ -7,13 +8,17 @@ moment.locale('pt-br')
 const MedidorDeAtividade = props => (
     <tr>
         <td>{props.curiometro.ajusteZero}</td>
-        <td>{props.curiometro.dataAjusteZero}</td>
         <td>{props.curiometro.altaTensao}</td>
-        <td>{props.curiometro.dataAltaTensao}</td>
+        <td>{props.curiometro.bg}</td>
+        <td>{props.curiometro.cheio}</td>
+        <td>{props.curiometro.vazio}</td>
         <td>{props.curiometro.cobalto}</td>
         <td>{props.curiometro.bario}</td>
         <td>{props.curiometro.cesio}</td>
-        <td>{props.curiometro.dataRepetibilidade}</td>
+        <td>{props.curiometro.data}</td>
+        <td>
+            <Link to={"/edit/"+props.curiometro._id}>Editar</Link>
+        </td>
     </tr>
 )
 
@@ -47,14 +52,15 @@ export default class DiariosList extends Component {
                 <table className="table table-striped" style={{ marginTop: 20 }} >
                     <thead>
                         <tr>
-                            <th>Ajuste do Zero</th>
-                            <th>Data do Ajuste do Zero</th>
-                            <th>Alta Tensão</th>
-                            <th>Data da Alta Tensão</th>
-                            <th>Co-57</th>
-                            <th>Ba-133</th>
-                            <th>Cs-137</th>
-                            <th>Data da Repetibilidade</th>
+                            <th>Ajuste do Zero (mV)</th>
+                            <th>Alta Tensão (V)</th>
+                            <th>Radiação de Fundo (µCi)</th>
+                            <th>Poço Cheio (µCi)</th>
+                            <th>Poço Vazio (µCi)</th>
+                            <th>Co-57 (µCi ou mCi)</th>
+                            <th>Ba-133 (µCi)</th>
+                            <th>Cs-137 (µCi)</th>
+                            <th>Data do Teste</th>
                         </tr>
                     </thead>
                     <tbody>

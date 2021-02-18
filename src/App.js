@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 
-import CreateTodo from "./components/criaUsuario"
+import CriaUsuario from "./components/criaUsuario"
 import EditTodo from "./components/edit-todo.component"
 import TodosList from "./components/todos-list.component"
 import CriaDiarioCuriometro from "./components/criaDiarioCuriometro"
@@ -36,7 +36,7 @@ class App extends Component {
           <br/>
           <Route path="/" exact component={TodosList} />
           <Route path="/edit/:id" component={EditTodo} />
-          <Route path="/auth/register" component={CreateTodo} />
+          <Route path="/auth/register" component={CriaUsuario} />
           <Route path="/curiometro/add" component={CriaDiarioCuriometro} />
           <Route path="/curiometro/todos" component={ListaDiarioCuriometro} />
         </div>
