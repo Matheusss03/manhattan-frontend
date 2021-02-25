@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import CriaUsuario from "./components/criaUsuario"
-import EditTodo from "./components/edit-todo.component"
-import TodosList from "./components/todos-list.component"
+import ListaUsuario from "./components/listaUsuario"
+import EditaUsuario from "./components/editaUsuario"
+
 import CriaDiarioCuriometro from "./components/criaDiarioCuriometro"
 import ListaDiarioCuriometro from "./components/listaDiarioCuriometro"
+import EditaDiarioCuriometro from "./components/editaDiarioCuriometro"
 
 class App extends Component {
   render() {
@@ -19,10 +21,10 @@ class App extends Component {
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link">Usuários</Link>
+                  <Link to="auth/todos" className="nav-link">Usuários</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="auth/register" className="nav-link">Adicionar Usuário</Link>
+                  <Link to="auth/add" className="nav-link">Adicionar Usuário</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="curiometro/todos" className="nav-link">Atividades Medidas</Link>
@@ -34,11 +36,12 @@ class App extends Component {
             </div>
           </nav>
           <br/>
-          <Route path="/" exact component={TodosList} />
-          <Route path="/edit/:id" component={EditTodo} />
-          <Route path="/auth/register" component={CriaUsuario} />
-          <Route path="/curiometro/add" component={CriaDiarioCuriometro} />
-          <Route path="/curiometro/todos" component={ListaDiarioCuriometro} />
+          <Route path="/auth/add" exact component={CriaUsuario} />
+          <Route path="/auth/todos" exact component={ListaUsuario} />
+          <Route path="/auth/update/:id" exact component={EditaUsuario} />
+          <Route path="/curiometro/add" exact component={CriaDiarioCuriometro} />
+          <Route path="/curiometro/todos" exact component={ListaDiarioCuriometro} />
+          <Route path="/curiometro/update/:id" exact component={EditaDiarioCuriometro} />
         </div>
       </Router>
     );

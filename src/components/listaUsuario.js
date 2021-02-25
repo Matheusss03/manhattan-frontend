@@ -10,7 +10,7 @@ const Usuario = props => (
     </tr>
 )
 
-export default class UsuariosList extends Component {
+export default class ListaUsuario extends Component {
 
     constructor(props) {
         super(props);

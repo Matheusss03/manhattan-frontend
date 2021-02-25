@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { cpfMask, celMask, cnenMask } from '../utils/masks'
 
-export default class CriaUsuario extends Component {
+export default class EditaUsuario extends Component {
 
     constructor(props) {
         super(props)
-  
+
         this.onChangeNome = this.onChangeNome.bind(this)
         this.onChangeCPF = this.onChangeCPF.bind(this)
         this.onChangeSenha = this.onChangeSenha.bind(this)
@@ -25,62 +24,80 @@ export default class CriaUsuario extends Component {
             email: '',
             cnen: '',
             celular: '',
-            conselho: '',
+            conselho: ''
         }
     }
-  
+
+    componentDidMount() {
+        axios.get('https://backend-manhattan.herokuapp.com/auth/'+this.props.match.params.id)
+            .then(response => {
+                this.setState({
+                    nome: response.data.nome,
+                    cpf: response.data.cpf,
+                    senha: response.data.senha,
+                    tipo: response.data.tipo,
+                    email: response.data.email,
+                    cnen: response.data.cnen,
+                    celular: response.data.celular,
+                    conselho: response.data.conselho
+                })   
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
     onChangeNome(e) {
         this.setState({
             nome: e.target.value
         });
     }
-  
+
     onChangeCPF(e) {
         this.setState({
-            cpf: cpfMask(e.target.value)
+            cpf: e.target.value
         });
     }
-  
+
     onChangeSenha(e) {
         this.setState({
             senha: e.target.value
         });
     }
-  
+
     onChangeTipo(e) {
-      this.setState({
-          tipo: e.target.value
-      });
+        this.setState({
+            tipo: e.target.value
+        });
     }
-  
+
     onChangeEmail(e) {
-      this.setState({
-          email: e.target.value
-      });
+        this.setState({
+            email: e.target.value
+        });
     }
 
     onChangeCnen(e) {
-      this.setState({
-          cnen: cnenMask(e.target.value)
-      });
+        this.setState({
+            cnen: e.target.value
+        });
     }
 
     onChangeCelular(e) {
-      this.setState({
-          celular: celMask(e.target.value)
-      });
+        this.setState({
+            celular: e.target.value
+        });
     }
 
     onChangeConselho(e) {
-      this.setState({
-          conselho: e.target.value
-      });
+        this.setState({
+            conselho: e.target.value
+        });
     }
-  
+
     onSubmit(e) {
         e.preventDefault();
-  
-        const newUser = {
+        const obj = {
             nome: this.state.nome,
             cpf: this.state.cpf,
             senha: this.state.senha,
@@ -89,27 +106,17 @@ export default class CriaUsuario extends Component {
             cnen: this.state.cnen,
             celular: this.state.celular,
             conselho: this.state.conselho,
-        }
-  
-        axios.post('https://backend-manhattan.herokuapp.com/auth/register', newUser)
-            .then(res => console.log(res.data))
-            .catch(error => error.response)
-  
-        this.setState({
-            nome: '',
-            cpf: '',
-            senha: '',
-            tipo: '',
-            email: '',
-            cnen: '',
-            celular: '',
-            conselho: '',
-        })
+        };
+        console.log(obj);
+        axios.post('https://backend-manhattan.herokuapp.com/auth/update/'+this.props.match.params.id, obj)
+            .then(res => console.log(res.data));
+        
+        this.props.history.push('/');
     }
-  
+
     render() {
         return (
-            <div style={{marginTop: 20}}>
+            <div>
                 <h3>Cadastrar Novo Usuário</h3>
                 <br/>
                 <form onSubmit={this.onSubmit}>
@@ -231,12 +238,12 @@ export default class CriaUsuario extends Component {
                             <label className="form-check-label">Titular</label>
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <div className="form-group">
-                        <input type="submit" value="Criar Usuário" className="btn btn-primary" />
+                        <input type="submit" value="Atualizar Dado" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
         )
     }
-  }
+}
