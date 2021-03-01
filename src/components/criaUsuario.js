@@ -91,7 +91,7 @@ export default class CriaUsuario extends Component {
             conselho: this.state.conselho,
         }
   
-        axios.post('https://backend-manhattan.herokuapp.com/auth/register', newUser)
+        axios.post('https://backend-manhattan.herokuapp.com/auth/add', newUser)
             .then(res => console.log(res.data))
             .catch(error => error.response)
   

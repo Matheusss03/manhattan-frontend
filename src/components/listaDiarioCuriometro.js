@@ -5,7 +5,7 @@ import moment from 'moment'
 
 moment.locale('pt-br')
 
-const MedidorDeAtividade = props => (
+const Curiometro = props => (
     <tr>
         <td>{props.curiometro.data}</td>
         <td>{props.curiometro.ajusteZero}</td>
@@ -30,7 +30,7 @@ export default class DiariosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://backend-manhattan.herokuapp.com/curiometro/todos')
+        axios.get('https://backend-manhattan.herokuapp.com/curiometro')
             .then(response => {
                 this.setState({ diarios: response.data });
             })
@@ -40,8 +40,8 @@ export default class DiariosList extends Component {
     }
 
     curiometroList() {
-        return this.state.diarios.map(function(currentDiario, i){
-            return <MedidorDeAtividade curiometro={currentDiario} key={i} />;
+        return this.state.diarios.map(function(currentDiario, i) {
+            return <Curiometro curiometro={currentDiario} key={i} />;
         })
     }
 
