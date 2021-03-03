@@ -38,10 +38,10 @@ class App extends Component {
           <br/>
           <Route path="/auth/add" component={CriaUsuario} />
           <Route path="/auth/todos" component={ListaUsuario} />
-          <Route path="/auth/update/:id" exact component={EditaUsuario} />
-          <Route path="/curiometro/add" exact component={CriaDiarioCuriometro} />
+          <Route path="/auth/update/:id" component={EditaUsuario} />
+          <Route path="/curiometro/add" component={CriaDiarioCuriometro} />
           <Route path="/curiometro/todos" component={ListaDiarioCuriometro} />
-          <Route path="/curiometro/update/:id" exact component={EditaDiarioCuriometro} />
+          <Route path="/curiometro/update/:id" component={EditaDiarioCuriometro} />
         </div>
       </Router>
     );

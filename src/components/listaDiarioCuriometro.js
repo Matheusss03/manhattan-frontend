@@ -5,19 +5,19 @@ import moment from 'moment'
 
 moment.locale('pt-br')
 
-const Curiometro = props => (
+const DadoCalibrador = props => (
     <tr>
-        <td>{props.curiometro.data}</td>
-        <td>{props.curiometro.ajusteZero}</td>
-        <td>{props.curiometro.altaTensao}</td>
-        <td>{props.curiometro.bg}</td>
-        <td>{props.curiometro.cheio}</td>
-        <td>{props.curiometro.vazio}</td>
-        <td>{props.curiometro.cobalto}</td>
-        <td>{props.curiometro.bario}</td>
-        <td>{props.curiometro.cesio}</td>
+        <td>{props.dadoCalibrador.data}</td>
+        <td>{props.dadoCalibrador.ajusteZero}</td>
+        <td>{props.dadoCalibrador.altaTensao}</td>
+        <td>{props.dadoCalibrador.bg}</td>
+        <td>{props.dadoCalibrador.cheio}</td>
+        <td>{props.dadoCalibrador.vazio}</td>
+        <td>{props.dadoCalibrador.cobalto}</td>
+        <td>{props.dadoCalibrador.bario}</td>
+        <td>{props.dadoCalibrador.cesio}</td>
         <td>
-            <Link to={"/update/"+props.curiometro._id}>Editar</Link>
+            <Link to={"/update/"+props.dadoCalibrador._id}>Editar</Link>
         </td>
     </tr>
 )
@@ -26,22 +26,22 @@ export default class DiariosList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {diarios: []};
+        this.state = {dado_calibrador: []};
     }
 
     componentDidMount() {
-        axios.get('https://backend-manhattan.herokuapp.com/curiometro/todos')
+        axios.get('https://backend-manhattan.herokuapp.com/curiometro/todos/')
             .then(response => {
-                this.setState({ diarios: response.data });
+                this.setState({ dado_calibrador: response.data });
             })
             .catch(function (error){
                 console.log(error);
             })
     }
 
-    curiometroList() {
-        return this.state.diarios.map(function(currentDiario, i) {
-            return <Curiometro curiometro={currentDiario} key={i} />;
+    dadoCalibradorList() {
+        return this.state.dado_calibrador.map(function(currentDiario, i) {
+            return <DadoCalibrador dadoCalibrador={currentDiario} key={i} />;
         })
     }
 
@@ -64,7 +64,7 @@ export default class DiariosList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.curiometroList() }
+                        { this.dadoCalibradorList() }
                     </tbody>
                 </table>
             </div>
