@@ -160,12 +160,11 @@ export default class CriaUsuario extends Component {
                         </div>
                         <div className="form-group col-md-3">
                                 <label>Conselho: </label>
-                                <select id="inputState" className="form-control">
-                                    <option selected>Selecione...</option>
-                                    <option value='CRM' selected={this.state.conselho==='CRM'} onChange={this.onChangeConselho}>CRM</option>
-                                    <option value='CRF' selected={this.state.conselho==='CRF'} onChange={this.onChangeConselho}>CRF</option>
-                                    <option value='COREN' selected={this.state.conselho==='COREN'} onChange={this.onChangeConselho}>COREN</option>
-                                    <option value='CRBM' selected={this.state.conselho==='CRBM'} onChange={this.onChangeConselho}>CRBM</option>
+                                <select value={this.state.conselho} id="inputState" className="form-control" onChange={this.onChangeConselho}>
+                                    <option value='CRM' >CRM</option>
+                                    <option value='CRF' >CRF</option>
+                                    <option value='COREN' >COREN</option>
+                                    <option value='CRBM' >CRBM</option>
                                 </select>
                         </div>
                     </div>

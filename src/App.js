@@ -27,7 +27,7 @@ class App extends Component {
                   <Link to="auth/add" className="nav-link">Adicionar Usuário</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="curiometro" className="nav-link">Atividades Medidas</Link>
+                  <Link to="curiometro/todos" className="nav-link">Atividades Medidas</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="curiometro/add" className="nav-link">Adicionar Atividade - Curiômetro</Link>
@@ -40,7 +40,7 @@ class App extends Component {
           <Route path="/auth/todos" component={ListaUsuario} />
           <Route path="/auth/update/:id" exact component={EditaUsuario} />
           <Route path="/curiometro/add" exact component={CriaDiarioCuriometro} />
-          <Route path="/curiometro" component={ListaDiarioCuriometro} />
+          <Route path="/curiometro/todos" component={ListaDiarioCuriometro} />
           <Route path="/curiometro/update/:id" exact component={EditaDiarioCuriometro} />
         </div>
       </Router>

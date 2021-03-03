@@ -30,7 +30,7 @@ export default class DiariosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://backend-manhattan.herokuapp.com/curiometro')
+        axios.get('https://backend-manhattan.herokuapp.com/curiometro/todos')
             .then(response => {
                 this.setState({ diarios: response.data });
             })
