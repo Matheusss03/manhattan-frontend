@@ -1,21 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class EditaUsuario extends Component {
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { Loading } from '../../components'
+
+class EditaUsuario extends Component {
 
     constructor(props) {
         super(props)
 
-        this.onChangeNome = this.onChangeNome.bind(this)
-        this.onChangeCPF = this.onChangeCPF.bind(this)
-        this.onChangeSenha = this.onChangeSenha.bind(this)
-        this.onChangeTipo = this.onChangeTipo.bind(this)
-        this.onChangeEmail = this.onChangeEmail.bind(this)
-        this.onChangeCnen = this.onChangeCnen.bind(this)
-        this.onChangeCelular = this.onChangeCelular.bind(this)
-        this.onChangeConselho = this.onChangeConselho.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-  
         this.state = {
             nome: '',
             cpf: '',
@@ -29,7 +22,7 @@ export default class EditaUsuario extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://backend-manhattan.herokuapp.com/auth/'+this.props.match.params.id)
+        axios.get('https://backend-manhattan.herokuapp.com/usuario/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     nome: response.data.nome,
@@ -47,57 +40,13 @@ export default class EditaUsuario extends Component {
             })
     }
 
-    onChangeNome(e) {
-        this.setState({
-            nome: e.target.value
-        });
+    onChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
-    onChangeCPF(e) {
-        this.setState({
-            cpf: e.target.value
-        });
-    }
-
-    onChangeSenha(e) {
-        this.setState({
-            senha: e.target.value
-        });
-    }
-
-    onChangeTipo(e) {
-        this.setState({
-            tipo: e.target.value
-        });
-    }
-
-    onChangeEmail(e) {
-        this.setState({
-            email: e.target.value
-        });
-    }
-
-    onChangeCnen(e) {
-        this.setState({
-            cnen: e.target.value
-        });
-    }
-
-    onChangeCelular(e) {
-        this.setState({
-            celular: e.target.value
-        });
-    }
-
-    onChangeConselho(e) {
-        this.setState({
-            conselho: e.target.value
-        });
-    }
-
-    onSubmit(e) {
+    onSubmit = e => {
         e.preventDefault();
-        const obj = {
+        const data = {
             nome: this.state.nome,
             cpf: this.state.cpf,
             senha: this.state.senha,
@@ -107,34 +56,39 @@ export default class EditaUsuario extends Component {
             celular: this.state.celular,
             conselho: this.state.conselho,
         };
-        console.log(obj);
-        axios.post('https://backend-manhattan.herokuapp.com/auth/update/'+this.props.match.params.id, obj)
-            .then(res => console.log(res.data));
-        
-        this.props.history.push('/');
+        console.log(data);
+        axios.put('https://backend-manhattan.herokuapp.com/usuario/update/'+this.props.match.params.id, data)
+            .then(res => {
+                this.props.history.push('/usuario/todos/')
+            })
+            .catch(err => {
+                console.log("Erro ao atualizar usuário!")
+            })
     }
 
     render() {
         return (
             <div>
-                <h3>Cadastrar Novo Usuário</h3>
+                <h3>Editar Usuário</h3>
                 <br/>
                 <form onSubmit={this.onSubmit}>
                     <div class="form-row">
                         <div className="form-group col-md-4">
                             <label>Nome: </label>
                             <input  type="text"
+                                    name='nome'
                                     className="form-control"
                                     value={this.state.nome}
-                                    onChange={this.onChangeNome}
+                                    onChange={this.onChange}
                                     />
                         </div>
                         <div className="form-group col-md-3">
                             <label>CPF: </label>
                             <input  type="text"
+                                    name='cpf'
                                     className="form-control"
                                     value={this.state.cpf}
-                                    onChange={this.onChangeCPF}
+                                    onChange={this.onChange}
                                     />
                         </div>
                     </div>
@@ -143,16 +97,18 @@ export default class EditaUsuario extends Component {
                             <label>Email: </label>
                             <input  type="email"
                                     className="form-control"
+                                    name='email'
                                     value={this.state.email}
-                                    onChange={this.onChangeEmail}
+                                    onChange={this.onChange}
                                     />
                         </div>
                         <div className="form-group col-md-3">
                             <label>Senha: </label>
                             <input  type="password"
+                                    name='senha'
                                     className="form-control"
                                     value={this.state.senha}
-                                    onChange={this.onChangeSenha}
+                                    onChange={this.onChange}
                                     />
                         </div>
                     </div>
@@ -161,18 +117,19 @@ export default class EditaUsuario extends Component {
                             <label>CNEN: </label>
                             <input  type="text"
                                     className="form-control"
+                                    name='cnen'
                                     value={this.state.cnen}
-                                    onChange={this.onChangeCnen}
+                                    onChange={this.onChange}
                                     />
                         </div>
                         <div className="form-group col-md-3">
                                 <label>Conselho: </label>
                                 <select id="inputState" className="form-control">
                                     <option selected>Selecione...</option>
-                                    <option value='CRM' selected={this.state.conselho==='CRM'} onChange={this.onChangeConselho}>CRM</option>
-                                    <option value='CRF' selected={this.state.conselho==='CRF'} onChange={this.onChangeConselho}>CRF</option>
-                                    <option value='COREN' selected={this.state.conselho==='COREN'} onChange={this.onChangeConselho}>COREN</option>
-                                    <option value='CRBM' selected={this.state.conselho==='CRBM'} onChange={this.onChangeConselho}>CRBM</option>
+                                    <option name='conselho' value='CRM' selected={this.state.conselho==='CRM'} onChange={this.onChange}>CRM</option>
+                                    <option name='conselho' value='CRF' selected={this.state.conselho==='CRF'} onChange={this.onChange}>CRF</option>
+                                    <option name='conselho' value='COREN' selected={this.state.conselho==='COREN'} onChange={this.onChange}>COREN</option>
+                                    <option name='conselho' value='CRBM' selected={this.state.conselho==='CRBM'} onChange={this.onChange}>CRBM</option>
                                 </select>
                         </div>
                     </div>
@@ -181,8 +138,9 @@ export default class EditaUsuario extends Component {
                             <label>Celular: </label>
                             <input  type="text"
                                     className="form-control"
+                                    name='celular' 
                                     value={this.state.celular}
-                                    onChange={this.onChangeCelular}
+                                    onChange={this.onChange}
                                     />
                         </div>
                     </div>
@@ -190,11 +148,11 @@ export default class EditaUsuario extends Component {
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
                                     type="radio" 
-                                    name="tipoOpcoes" 
+                                    name="tipo" 
                                     id="tipoResponsavel" 
                                     value="Responsável Técnico"
                                     checked={this.state.tipo==='Responsável Técnico'} 
-                                    onChange={this.onChangeTipo}
+                                    onChange={this.onChange}
                                     />
                             <label className="form-check-label">Responsável Técnico</label>
                         </div>
@@ -203,11 +161,11 @@ export default class EditaUsuario extends Component {
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
                                     type="radio" 
-                                    name="tipoOpcoes" 
+                                    name="tipo" 
                                     id="tipoSupervisor" 
                                     value="Supervisor de Radioproteção"
                                     checked={this.state.tipo==='Supervisor de Radioproteção'} 
-                                    onChange={this.onChangeTipo}
+                                    onChange={this.onChange}
                                     />
                             <label className="form-check-label">Supervisor de Radioproteção</label>
                         </div>
@@ -216,11 +174,11 @@ export default class EditaUsuario extends Component {
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
                                     type="radio" 
-                                    name="tipoOpcoes" 
+                                    name="tipo" 
                                     id="tipoOperador" 
                                     value="Operador"
                                     checked={this.state.tipo==='Operador'} 
-                                    onChange={this.onChangeTipo}
+                                    onChange={this.onChange}
                                     />
                             <label className="form-check-label">Operador</label>
                         </div>
@@ -229,21 +187,38 @@ export default class EditaUsuario extends Component {
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
                                     type="radio" 
-                                    name="tipoOpcoes" 
+                                    name="tipo" 
+                                    id="tipoTitular" 
+                                    value="Físico"
+                                    checked={this.state.tipo==='Físico'} 
+                                    onChange={this.onChange}
+                                    />
+                            <label className="form-check-label">Físico</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipo" 
                                     id="tipoTitular" 
                                     value="Titular"
                                     checked={this.state.tipo==='Titular'} 
-                                    onChange={this.onChangeTipo}
+                                    onChange={this.onChange}
                                     />
                             <label className="form-check-label">Titular</label>
                         </div>
                     </div>
                     <br />
                     <div className="form-group">
-                        <input type="submit" value="Atualizar Dado" className="btn btn-primary" />
+                        <input type="submit" value="Atualizar Usuário" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
         )
     }
 }
+
+export default withAuthenticationRequired(EditaUsuario, {
+    onRedirecting: () => <Loading />,
+})

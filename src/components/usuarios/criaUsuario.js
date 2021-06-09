@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { cpfMask, celMask, cnenMask } from '../utils/masks'
+import { cpfMask, celMask, cnenMask } from '../../utils/masks'
 
-export default class CriaUsuario extends Component {
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { Loading } from '../../components'
+
+class CriaUsuario extends Component {
 
     constructor(props) {
         super(props)
@@ -91,7 +94,7 @@ export default class CriaUsuario extends Component {
             conselho: this.state.conselho,
         }
   
-        axios.post('https://backend-manhattan.herokuapp.com/auth/add', newUser)
+        axios.post('https://backend-manhattan.herokuapp.com/usuario/add', newUser)
             .then(res => console.log(res.data))
             .catch(error => error.response)
   
@@ -222,6 +225,19 @@ export default class CriaUsuario extends Component {
                             <input  className="form-check-input" 
                                     type="radio" 
                                     name="tipoOpcoes" 
+                                    id="tipoFísico" 
+                                    value="Físico"
+                                    checked={this.state.tipo==='Físico'} 
+                                    onChange={this.onChangeTipo}
+                                    />
+                            <label className="form-check-label">Físico</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" 
+                                    type="radio" 
+                                    name="tipoOpcoes" 
                                     id="tipoTitular" 
                                     value="Titular"
                                     checked={this.state.tipo==='Titular'} 
@@ -239,3 +255,7 @@ export default class CriaUsuario extends Component {
         )
     }
   }
+
+export default withAuthenticationRequired(CriaUsuario, {
+    onRedirecting: () => <Loading />,
+})

@@ -3,6 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { Loading } from '../../components'
+
 moment.locale('pt-br')
 
 const DadoCalibrador = props => (
@@ -17,12 +20,15 @@ const DadoCalibrador = props => (
         <td>{props.dadoCalibrador.bario}</td>
         <td>{props.dadoCalibrador.cesio}</td>
         <td>
-            <Link to={"/update/"+props.dadoCalibrador._id}>Editar</Link>
+            <Link to={"/curiometro/mostrar/"+props.dadoCalibrador._id}>Ver</Link>
+        </td>
+        <td>
+            <Link to={"/curiometro/editar/"+props.dadoCalibrador._id}>Editar</Link>
         </td>
     </tr>
 )
 
-export default class DiariosList extends Component {
+class ListaDiarioCuriometro extends Component {
 
     constructor(props) {
         super(props);
@@ -61,6 +67,8 @@ export default class DiariosList extends Component {
                             <th>Co-57 (µCi ou mCi)</th>
                             <th>Ba-133 (µCi)</th>
                             <th>Cs-137 (µCi)</th>
+                            <th>Visualização</th>
+                            <th>Edição</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,3 +79,7 @@ export default class DiariosList extends Component {
         )
     }
 }
+
+export default withAuthenticationRequired(ListaDiarioCuriometro, {
+    onRedirecting: () => <Loading />,
+})

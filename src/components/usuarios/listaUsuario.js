@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
+
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { Loading } from '../../components'
 
 const Usuario = props => (
     <tr>
         <td>{props.usuario.nome}</td>
-        <td>{props.usuario.cpf}</td>
         <td>{props.usuario.tipo}</td>
         <td>{props.usuario.email}</td>
+        <td>
+            <Link to={"/usuario/mostrar/"+props.usuario._id}>Ver</Link>
+        </td>
+        <td>
+            <Link to={"/usuario/editar/"+props.usuario._id}>Editar</Link>
+        </td>
     </tr>
 )
 
-export default class ListaUsuario extends Component {
+class ListaUsuario extends Component {
 
     constructor(props) {
         super(props);
@@ -18,7 +27,7 @@ export default class ListaUsuario extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://backend-manhattan.herokuapp.com/auth/todos')
+        axios.get('https://backend-manhattan.herokuapp.com/usuario/todos')
             .then(response => {
                 this.setState({ usuarios: response.data });
             })
@@ -41,9 +50,10 @@ export default class ListaUsuario extends Component {
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>CPF</th>
                             <th>Tipo</th>
                             <th>E-mail</th>
+                            <th>Visualização</th>
+                            <th>Edição</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,3 +64,7 @@ export default class ListaUsuario extends Component {
         )
     }
 }
+
+export default withAuthenticationRequired(ListaUsuario, {
+    onRedirecting: () => <Loading />,
+})
