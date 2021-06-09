@@ -174,7 +174,7 @@ class CriaDiarioCuriometro extends Component {
                             <label>Contaminação Poço Cheio: </label>
                             <input  type="text"
                                     className="form-control"
-                                    value={this.state.text}
+                                    value={this.state.cheio}
                                     onChange={this.onChangeCheio}
                                     />
                         </div>
