@@ -89,17 +89,7 @@ class CriaDiarioCuriometro extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-  /*
-        console.log(`Form submitted:`)
-        console.log(`Ajuste do Zero: ${this.state.ajusteZero}`)
-        console.log(`Data Ajuste do Zero: ${this.state.bg}`)
-        console.log(`Alta Tensão: ${this.state.altaTensao}`)
-        console.log(`Data Alta Tensão: ${this.state.vazio}`)
-        console.log(`Bario: ${this.state.bario}`)
-        console.log(`Césio: ${this.state.cesio}`)
-        console.log(`Cobalto: ${this.state.cobalto}`)
-        console.log(`Data Repetibilidade: ${this.state.data}`)
-  */
+
         const newDiario = {
             ajusteZero: this.state.ajusteZero,
             bg: this.state.bg,

@@ -6,6 +6,7 @@ import { NavBar, Footer, Profile, Construcao } from "./components"
 import { CriaUsuario, ListaUsuario, EditaUsuario, MostraUsuario } from './components/usuarios'
 import { CriaDiarioCuriometro, ListaDiarioCuriometro, EditaDiarioCuriometro, MostraDiarioCuriometro } from "./components/curiometro"
 import { CriaFonteSelada } from "./components/fontes"
+import { CriaInstituicao, ListaInstituicao, EditaInstituicao, MostraInstituicao } from "./components/instituicao"
 
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -26,6 +27,10 @@ const App = () => {
           <Route path="/curiometro/todos" component={ListaDiarioCuriometro} />
           <Route path="/curiometro/editar/:id" component={EditaDiarioCuriometro} />
           <Route path="/curiometro/mostrar/:id" component={MostraDiarioCuriometro} />
+          <Route path="/instituicao/add" component={CriaInstituicao} />
+          <Route path="/instituicao/todos" component={ListaInstituicao} />
+          <Route path="/instituicao/editar/:id" component={EditaInstituicao} />
+          <Route path="/instituicao/mostrar/:id" component={MostraInstituicao} />
           <Route path="/selada/add" component={CriaFonteSelada} />
         </Switch>
       </Container>

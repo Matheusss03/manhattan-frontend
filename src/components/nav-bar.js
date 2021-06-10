@@ -358,6 +358,15 @@ const MainNav = () => (
         </NavDropdown.Item>
     </NavDropdown>
 
+    <NavDropdown title="Instituição">
+          <NavDropdown.Item>
+              <Nav.Link as={RouterNavLink} to="/instituicao/add" className="nav-link">Adicionar</Nav.Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+              <Nav.Link as={RouterNavLink} to="/instituicao/todos" className="nav-link">Mostrar Todos</Nav.Link>
+          </NavDropdown.Item>
+    </NavDropdown>
+
     <Nav.Link
       as={RouterNavLink}
       to="/profile"

@@ -14,6 +14,7 @@ class CriaFonteSelada extends Component {
         this.onChangeSerie = this.onChangeSerie.bind(this)
         this.onChangeNumeroCertificado = this.onChangeNumeroCertificado.bind(this)
         this.onChangeMeiaVida = this.onChangeMeiaVida.bind(this)
+        this.onChangeAtividade = this.onChangeAtividade.bind(this)
         this.onChangeUnidadeMedida = this.onChangeUnidadeMedida.bind(this)
         this.onChangeDataCalibracao = this.onChangeDataCalibracao.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -25,6 +26,7 @@ class CriaFonteSelada extends Component {
             numeroCertificado: '',
             meiaVida: '',
             unidadeMedida: '',
+            atividade: '',
             dataCalibracao: ''
         }
     }
@@ -58,6 +60,12 @@ class CriaFonteSelada extends Component {
             meiaVida: e.target.value
         });
       }
+
+    onChangeAtividade(e) {
+        this.setState({
+            atividade: e.target.value
+        });
+    }
   
     onChangeUnidadeMedida(e) {
       this.setState({
@@ -73,23 +81,14 @@ class CriaFonteSelada extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-  /*
-        console.log(`Form submitted:`)
-        console.log(`Ajuste do Zero: ${this.state.radionuclideo}`)
-        console.log(`DataCalibracao Ajuste do Zero: ${this.state.fabricante}`)
-        console.log(`Alta Tensão: ${this.state.serie}`)
-        console.log(`DataCalibracao Alta Tensão: ${this.state.numeroCertificado}`)
-        console.log(`unidadeMedida: ${this.state.unidadeMedida}`)
-        console.log(`Césio: ${this.state.cesio}`)
-        console.log(`Cobalto: ${this.state.cobalto}`)
-        console.log(`DataCalibracao Repetibilidade: ${this.state.dataCalibracao}`)
-  */
+
         const newFonte = {
             radionuclideo: this.state.radionuclideo,
             fabricante: this.state.fabricante,
             serie: this.state.serie,
             numeroCertificado: this.state.numeroCertificado,
             meiaVida: this.state.meiaVida,
+            atividade: this.state.atividade,
             unidadeMedida: this.state.unidadeMedida,
             dataCalibracao: this.state.dataCalibracao,
         }
@@ -104,6 +103,7 @@ class CriaFonteSelada extends Component {
             serie: '',
             numeroCertificado: '',
             meiaVida: '',
+            atividade: '',
             unidadeMedida: '',
             dataCalibracao: ''
         })
@@ -154,11 +154,11 @@ class CriaFonteSelada extends Component {
                                 </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label>Meia-Vida: </label>
+                            <label>Atividade Calibrada: </label>
                             <input  type="text"
                                     className="form-control"
-                                    value={this.state.meiaVida}
-                                    onChange={this.onChangeMeiaVida}
+                                    value={this.state.atividade}
+                                    onChange={this.onChangeAtividade}
                                     />
                         </div>
                         <div className="form-group col-md-3">
@@ -169,6 +169,16 @@ class CriaFonteSelada extends Component {
                                     <option value='kBq' >kBq</option>
                                     <option value='MBq' >MBq</option>
                                 </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div className="form-group col-md-3">
+                            <label>Meia-Vida: </label>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.meiaVida}
+                                    onChange={this.onChangeMeiaVida}
+                                    />
                         </div>
                     </div>
                     <div class="form-row">
