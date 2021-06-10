@@ -24,13 +24,320 @@ const MainNav = () => (
         </NavDropdown.Item>
     </NavDropdown>
 
-    <NavDropdown title="Calibrador de Dose">
-        <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/curiometro/add" className="nav-link">Adicionar</Nav.Link>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/curiometro/todos" className="nav-link">Mostrar Todos</Nav.Link>
-        </NavDropdown.Item>
+    <NavDropdown title="Controle de Qualidade">
+        <NavDropdown title="Curiômetro">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/curiometro/add" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/curiometro/todos" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="Gama-Câmara">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="Gama-Câmara SPECT">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="Gama-Câmara SPECT/CT">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="PET/CT">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="Gama Probe">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
+
+
+        <NavDropdown title="Captador">
+          <NavDropdown title="Testes Diários">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Exatidão e Precisão">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Geometria">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown.Divider />
+
+          <NavDropdown title="Linearidade">
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+                <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Mostrar Todos</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+        </NavDropdown>
     </NavDropdown>
 
     <NavDropdown title="Fontes">
@@ -38,16 +345,16 @@ const MainNav = () => (
             <Nav.Link as={RouterNavLink} to="/selada/add" className="nav-link">Adicionar Fonte Selada</Nav.Link>
         </NavDropdown.Item>
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/curiometro/todos" className="nav-link">Fontes Seladas</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Fontes Seladas</Nav.Link>
         </NavDropdown.Item>
 
         <NavDropdown.Divider />
 
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/curiometro/add" className="nav-link">Adicionar Fonte Não Selada</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar Fonte Não Selada</Nav.Link>
         </NavDropdown.Item>
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/curiometro/todos" className="nav-link">Fontes Não Seladas</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Fontes Não Seladas</Nav.Link>
         </NavDropdown.Item>
     </NavDropdown>
 
