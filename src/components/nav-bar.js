@@ -3,8 +3,12 @@ import { NavLink as RouterNavLink } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import AuthNav from './auth-nav'
+import { useAuth0 } from "@auth0/auth0-react"
 
-const MainNav = () => (
+const MainNav = () => {
+  const { isAuthenticated } = useAuth0()
+
+  return (
   <Nav className="mr-auto">
     <Nav.Link
       as={RouterNavLink}
@@ -15,6 +19,7 @@ const MainNav = () => (
       Home
     </Nav.Link>
 
+    {(isAuthenticated && 
     <NavDropdown title="Usuários">
         <NavDropdown.Item>
             <Nav.Link as={RouterNavLink} to="/usuario/add" className="nav-link">Adicionar</Nav.Link>                      
@@ -23,7 +28,9 @@ const MainNav = () => (
             <Nav.Link as={RouterNavLink} to="/usuario/todos" className="nav-link">Mostrar Todos</Nav.Link>
         </NavDropdown.Item>
     </NavDropdown>
+    )}
 
+    {(isAuthenticated && 
     <NavDropdown title="Controle de Qualidade">
         <NavDropdown title="Curiômetro">
           <NavDropdown title="Testes Diários">
@@ -339,7 +346,9 @@ const MainNav = () => (
           </NavDropdown>
         </NavDropdown>
     </NavDropdown>
+    )}
 
+    {(isAuthenticated && 
     <NavDropdown title="Fontes">
         <NavDropdown.Item>
             <Nav.Link as={RouterNavLink} to="/selada/add" className="nav-link">Adicionar Fonte Selada</Nav.Link>
@@ -357,7 +366,9 @@ const MainNav = () => (
             <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Fontes Não Seladas</Nav.Link>
         </NavDropdown.Item>
     </NavDropdown>
+    )}
 
+    {(isAuthenticated && 
     <NavDropdown title="Instituição">
           <NavDropdown.Item>
               <Nav.Link as={RouterNavLink} to="/instituicao/add" className="nav-link">Adicionar</Nav.Link>
@@ -366,7 +377,9 @@ const MainNav = () => (
               <Nav.Link as={RouterNavLink} to="/instituicao/todos" className="nav-link">Mostrar Todos</Nav.Link>
           </NavDropdown.Item>
     </NavDropdown>
+    )}
 
+    {(isAuthenticated && 
     <Nav.Link
       as={RouterNavLink}
       to="/profile"
@@ -375,8 +388,11 @@ const MainNav = () => (
     >
       Perfil
     </Nav.Link>
+    )}
+    
   </Nav>
-);
+  )
+};
 
 const NavBar = () => {
   return (

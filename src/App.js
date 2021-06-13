@@ -2,7 +2,7 @@ import React from "react"
 import { Route, Switch } from "react-router-dom"
 import { Container } from "react-bootstrap"
 
-import { NavBar, Footer, Profile, Construcao } from "./components"
+import { NavBar, Footer, Profile, Construcao, LandingPage } from "./components"
 import { CriaUsuario, ListaUsuario, EditaUsuario, MostraUsuario } from './components/usuarios'
 import { CriaDiarioCuriometro, ListaDiarioCuriometro, EditaDiarioCuriometro, MostraDiarioCuriometro } from "./components/curiometro"
 import { CriaFonteSelada } from "./components/fontes"
@@ -17,6 +17,7 @@ const App = () => {
       <NavBar />
       <Container className="flex-grow-1 mt-5">
         <Switch>
+          <Route path="/" component={LandingPage} />
           <Route path="/profile" component={Profile} />
           <Route path="/construcao" component={Construcao} />
           <Route path="/usuario/add" component={CriaUsuario} />
