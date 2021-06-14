@@ -17,7 +17,7 @@ const App = () => {
       <NavBar />
       <Container className="flex-grow-1 mt-5">
         <Switch>
-          <Route path="/" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/profile" component={Profile} />
           <Route path="/construcao" component={Construcao} />
           <Route path="/usuario/add" component={CriaUsuario} />
