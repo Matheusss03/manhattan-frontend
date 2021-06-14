@@ -124,12 +124,12 @@ class EditaUsuario extends Component {
                         </div>
                         <div className="form-group col-md-3">
                                 <label>Conselho: </label>
-                                <select id="inputState" className="form-control">
-                                    <option selected>Selecione...</option>
-                                    <option name='conselho' value='CRM' selected={this.state.conselho==='CRM'} onChange={this.onChange}>CRM</option>
-                                    <option name='conselho' value='CRF' selected={this.state.conselho==='CRF'} onChange={this.onChange}>CRF</option>
-                                    <option name='conselho' value='COREN' selected={this.state.conselho==='COREN'} onChange={this.onChange}>COREN</option>
-                                    <option name='conselho' value='CRBM' selected={this.state.conselho==='CRBM'} onChange={this.onChange}>CRBM</option>
+                                <select id="inputState" value={this.state.conselho} name='conselho' className="form-control" onChange={this.onChange}>
+                                    <option name='conselho' value='CRM' >CRM</option>
+                                    <option name='conselho' value='CRF' >CRF</option>
+                                    <option name='conselho' value='COREN' >COREN</option>
+                                    <option name='conselho' value='CRBM' >CRBM</option>
+                                    <option name='conselho' value='CRTR' >CRTR</option>
                                 </select>
                         </div>
                     </div>

@@ -67,7 +67,7 @@ class EditaInstrumento extends Component {
                     <div class="form-row">
                         <div className="form-group col-md-4">
                             <label>Máquina: </label>
-                            <select value={this.state.maquina} id="inputState" className="form-control" onChange={this.onChangeMaquina}>
+                            <select value={this.state.maquina} id="inputState" name='maquina' className="form-control" onChange={this.onChange}>
                                 <option name='maquina' value='Medidor de Atividade' >Medidor de Atividade</option>
                                 <option name='maquina' value='Detector GM' >Detector GM</option>
                                 <option name='maquina' value='Gama-Câmara' >Gama-Câmara</option>
@@ -86,7 +86,7 @@ class EditaInstrumento extends Component {
                                     className="form-control"
                                     name='fabricante'
                                     value={this.state.fabricante}
-                                    onChange={this.onChangeFabricante}
+                                    onChange={this.onChange}
                                     />
                         </div>
                         <div className="form-group col-md-3">
@@ -95,7 +95,7 @@ class EditaInstrumento extends Component {
                                     className="form-control"
                                     name='modelo'
                                     value={this.state.modelo}
-                                    onChange={this.onChangeModelo}
+                                    onChange={this.onChange}
                                     />
                         </div>
                     </div>
@@ -106,7 +106,7 @@ class EditaInstrumento extends Component {
                                     className="form-control"
                                     name='cnen'
                                     value={this.state.cnen}
-                                    onChange={this.onChangeCnen}
+                                    onChange={this.onChange}
                                     />
                         </div>
                         <div className="form-group col-md-3">
@@ -115,7 +115,7 @@ class EditaInstrumento extends Component {
                                     className="form-control"
                                     name='serie'
                                     value={this.state.serie}
-                                    onChange={this.onChangeSerie}
+                                    onChange={this.onChange}
                                     />
                         </div>
                     </div>
