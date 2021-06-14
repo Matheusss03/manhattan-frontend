@@ -380,6 +380,17 @@ const MainNav = () => {
     )}
 
     {(isAuthenticated && 
+    <NavDropdown title="Instrumentos">
+          <NavDropdown.Item>
+              <Nav.Link as={RouterNavLink} to="/instrumento/add" className="nav-link">Adicionar</Nav.Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+              <Nav.Link as={RouterNavLink} to="/instrumento/todos" className="nav-link">Mostrar Todos</Nav.Link>
+          </NavDropdown.Item>
+    </NavDropdown>
+    )}
+
+    {(isAuthenticated && 
     <Nav.Link
       as={RouterNavLink}
       to="/profile"

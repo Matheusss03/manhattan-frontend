@@ -1,9 +1,9 @@
-import CriaDiarioInstrumento from './criaDiarioInstrumento'
-import ListaDiarioInstrumento from "./listaDiarioInstrumento"
-import EditaDiarioInstrumento from "./editaDiarioInstrumento"
-import MostraDiarioInstrumento from './mostraDiarioInstrumento'
+import CriaInstrumento from './criaInstrumento'
+import ListaInstrumento from "./listaInstrumento"
+import EditaInstrumento from "./editaInstrumento"
+import MostraInstrumento from './mostraInstrumento'
 
-export { CriaDiarioInstrumento, 
-         ListaDiarioInstrumento, 
-         EditaDiarioInstrumento, 
-         MostraDiarioInstrumento }
+export { CriaInstrumento, 
+         ListaInstrumento, 
+         EditaInstrumento, 
+         MostraInstrumento }

@@ -168,6 +168,7 @@ class CriaUsuario extends Component {
                                     <option value='CRF' >CRF</option>
                                     <option value='COREN' >COREN</option>
                                     <option value='CRBM' >CRBM</option>
+                                    <option value='CRTR' >CRTR</option>
                                 </select>
                         </div>
                     </div>
