@@ -66,6 +66,10 @@ class MostraInstituicao extends Component {
                     <td>{ instituicao.telefone }</td>
                 </tr>
                 <tr>
+                    <td>Grupo</td>
+                    <td>{ instituicao.grupo }</td>
+                </tr>
+                <tr>
                     <td>CEP</td>
                     <td>{ instituicao.cep }</td>
                 </tr>

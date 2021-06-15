@@ -14,7 +14,15 @@ class EditaInstituicao extends Component {
             cnpj: '',
             cnen: '',
             telefone: '',
-            email: ''
+            email: '',
+            razao: '',
+            grupo: '',
+            cep: '',
+            bairro: '',
+            cidade: '',
+            uf: '',
+            logradouro: '',
+            complemento: ''
         }
     }
   
@@ -30,7 +38,15 @@ class EditaInstituicao extends Component {
             cnpj: this.state.cnpj,
             cnen: this.state.cnen,
             telefone: this.state.telefone,
-            email: this.state.email
+            email: this.state.email,
+            razao: this.state.razao,
+            grupo: this.state.grupo,
+            cep: this.state.cep,
+            bairro: this.state.bairro,
+            cidade: this.state.cidade,
+            uf: this.state.uf,
+            logradouro: this.state.logradouro,
+            complemento: this.state.complemento
         }
   
         axios.put('https://backend-manhattan.herokuapp.com/instituicao/update', newInstituicao)
@@ -55,7 +71,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='nome'
                                         value={this.state.nome}
-                                        onChange={this.onChangeNome}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -66,7 +82,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='razao'
                                         value={this.state.razao}
-                                        onChange={this.onChangeRazao}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -77,7 +93,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='cnpj'
                                         value={this.state.cnpj}
-                                        onChange={this.onChangeCNPJ}
+                                        onChange={this.onChange}
                                         />
                             </div>
                             <div className="form-group col-md-4">
@@ -86,7 +102,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='email'
                                         value={this.state.email}
-                                        onChange={this.onChangeEmail}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -97,7 +113,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='cnen'
                                         value={this.state.cnen}
-                                        onChange={this.onChangeCnen}
+                                        onChange={this.onChange}
                                         />
                             </div>
                             <div className="form-group col-md-3">
@@ -106,7 +122,16 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='telefone'
                                         value={this.state.telefone}
-                                        onChange={this.onChangeTelefone}
+                                        onChange={this.onChange}
+                                        />
+                            </div>
+                            <div className="form-group col-md-2">
+                                <label>Grupo da Instalação: </label>
+                                <input  type="text"
+                                        className="form-control"
+                                        name='grupo'
+                                        value={this.state.grupo}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -120,7 +145,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='cep'
                                         value={this.state.cep}
-                                        onChange={this.onChangeCEP}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -131,7 +156,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='logradouro'
                                         value={this.state.logradouro}
-                                        onChange={this.onChangeLogradouro}
+                                        onChange={this.onChange}
                                         />
                             </div>
                             <div className="form-group col-md-2">
@@ -140,7 +165,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='complemento'
                                         value={this.state.complemento}
-                                        onChange={this.onChangeComplemento}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
@@ -151,7 +176,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='bairro'
                                         value={this.state.bairro}
-                                        onChange={this.onChangeBairro}
+                                        onChange={this.onChange}
                                         />
                             </div>
                             <div className="form-group col-md-2">
@@ -160,7 +185,7 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='cidade'
                                         value={this.state.cidade}
-                                        onChange={this.onChangeCidade}
+                                        onChange={this.onChange}
                                         />
                             </div>
                             <div className="form-group col-md-1">
@@ -169,13 +194,13 @@ class EditaInstituicao extends Component {
                                         className="form-control"
                                         name='uf'
                                         value={this.state.uf}
-                                        onChange={this.onChangeUf}
+                                        onChange={this.onChange}
                                         />
                             </div>
                         </div>
                         <br/>
                         <div className="form-group">
-                            <input type="submit" value="Criar Instituição" className="btn btn-primary" />
+                            <input type="submit" value="Salvar Modificações" className="btn btn-primary" />
                         </div>
                     </form>
             </div>

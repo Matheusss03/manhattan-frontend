@@ -14,6 +14,7 @@ class CriaFonteSelada extends Component {
         this.onChangeSerie = this.onChangeSerie.bind(this)
         this.onChangeNumeroCertificado = this.onChangeNumeroCertificado.bind(this)
         this.onChangeMeiaVida = this.onChangeMeiaVida.bind(this)
+        this.onChangeUnidadeTempo = this.onChangeUnidadeTempo.bind(this)
         this.onChangeAtividade = this.onChangeAtividade.bind(this)
         this.onChangeUnidadeMedida = this.onChangeUnidadeMedida.bind(this)
         this.onChangeDataCalibracao = this.onChangeDataCalibracao.bind(this)
@@ -25,6 +26,7 @@ class CriaFonteSelada extends Component {
             serie: '',
             numeroCertificado: '',
             meiaVida: '',
+            unidadeTempo: '',
             unidadeMedida: '',
             atividade: '',
             dataCalibracao: ''
@@ -59,7 +61,13 @@ class CriaFonteSelada extends Component {
         this.setState({
             meiaVida: e.target.value
         });
-      }
+    }
+
+    onChangeUnidadeTempo(e) {
+        this.setState({
+            unidadeTempo: e.target.value
+        });
+    }
 
     onChangeAtividade(e) {
         this.setState({
@@ -88,6 +96,7 @@ class CriaFonteSelada extends Component {
             serie: this.state.serie,
             numeroCertificado: this.state.numeroCertificado,
             meiaVida: this.state.meiaVida,
+            unidadeTempo: this.state.unidadeTempo,
             atividade: this.state.atividade,
             unidadeMedida: this.state.unidadeMedida,
             dataCalibracao: this.state.dataCalibracao,
@@ -103,6 +112,7 @@ class CriaFonteSelada extends Component {
             serie: '',
             numeroCertificado: '',
             meiaVida: '',
+            unidadeTempo: '',
             atividade: '',
             unidadeMedida: '',
             dataCalibracao: ''
@@ -172,13 +182,20 @@ class CriaFonteSelada extends Component {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Meia-Vida: </label>
                             <input  type="text"
                                     className="form-control"
                                     value={this.state.meiaVida}
                                     onChange={this.onChangeMeiaVida}
                                     />
+                        </div>
+                        <div className="form-group col-md-2">
+                            <label>Unidade de Tempo: </label>
+                            <select value={this.state.unidadeTempo} id="inputState" className="form-control" onChange={this.onChangeUnidadeTempo}>
+                                    <option value='dias' >dias</option>
+                                    <option value='anos' >anos</option>
+                                </select>
                         </div>
                     </div>
                     <div class="form-row">

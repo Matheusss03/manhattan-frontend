@@ -16,6 +16,7 @@ class CriaInstituicao extends Component {
         this.onChangeTelefone = this.onChangeTelefone.bind(this)
         this.onChangeEmail = this.onChangeEmail.bind(this)
         this.onChangeRazao = this.onChangeRazao.bind(this)
+        this.onChangeGrupo = this.onChangeGrupo.bind(this)
         this.onChangeCEP = this.onChangeCEP.bind(this)
         this.onChangeBairro = this.onChangeBairro.bind(this)
         this.onChangeCidade = this.onChangeCidade.bind(this)
@@ -33,6 +34,7 @@ class CriaInstituicao extends Component {
             telefone: '',
             email: '',
             razao: '',
+            grupo: '',
             cep: '',
             bairro: '',
             cidade: '',
@@ -77,6 +79,12 @@ class CriaInstituicao extends Component {
     onChangeRazao(e) {
         this.setState({
             razao: e.target.value
+        })
+    }
+
+    onChangeGrupo(e) {
+        this.setState({
+            grupo: e.target.value
         })
     }
 
@@ -157,6 +165,7 @@ class CriaInstituicao extends Component {
             telefone: this.state.telefone,
             email: this.state.email,
             razao: this.state.razao,
+            grupo: this.state.grupo,
             cep: this.state.cep,
             bairro: this.state.bairro,
             cidade: this.state.cidade,
@@ -176,6 +185,7 @@ class CriaInstituicao extends Component {
             telefone: '',
             email: '',
             razao: '',
+            grupo: '',
             cep: '',
             bairro: '',
             cidade: '',
@@ -257,12 +267,20 @@ class CriaInstituicao extends Component {
                                         onChange={this.onChangeCnen}
                                         />
                             </div>
-                            <div className="form-group col-md-3">
+                            <div className="form-group col-md-2">
                                 <label>Telefone: </label>
                                 <input  type="text"
                                         className="form-control"
                                         value={this.state.telefone}
                                         onChange={this.onChangeTelefone}
+                                        />
+                            </div>
+                            <div className="form-group col-md-2">
+                                <label>Grupo da Instalação: </label>
+                                <input  type="text"
+                                        className="form-control"
+                                        value={this.state.grupo}
+                                        onChange={this.onChangeGrupo}
                                         />
                             </div>
                         </div>
