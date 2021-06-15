@@ -6,7 +6,14 @@ import { NavBar, Footer, Profile, Construcao, LandingPage } from "./components"
 import { CriaUsuario, ListaUsuario, EditaUsuario, MostraUsuario } from './components/usuarios'
 import { CriaInstrumento, ListaInstrumento, EditaInstrumento, MostraInstrumento } from './components/instrumentos'
 import { CriaDiarioCuriometro, ListaDiarioCuriometro, EditaDiarioCuriometro, MostraDiarioCuriometro } from "./components/curiometro"
-import { CriaFonteSelada } from "./components/fontes"
+import { CriaFonteSelada,
+         EditaFonteSelada,
+         MostraFonteSelada,
+         ListaFonteSelada,
+         CriaFonteNaoSelada,
+         EditaFonteNaoSelada,
+         MostraFonteNaoSelada,
+         ListaFonteNaoSelada } from "./components/fontes"
 import { CriaInstituicao, ListaInstituicao, EditaInstituicao, MostraInstituicao } from "./components/instituicao"
 
 import "./App.css"
@@ -38,6 +45,13 @@ const App = () => {
           <Route path="/instrumento/editar/:id" component={EditaInstrumento} />
           <Route path="/instrumento/mostrar/:id" component={MostraInstrumento} />
           <Route path="/selada/add" component={CriaFonteSelada} />
+          <Route path="/selada/todos" component={ListaFonteSelada} />
+          <Route path="/selada/editar/:id" component={EditaFonteSelada} />
+          <Route path="/selada/mostrar/:id" component={MostraFonteSelada} />
+          <Route path="/naoSelada/add" component={CriaFonteNaoSelada} />
+          <Route path="/naoSelada/todos" component={ListaFonteNaoSelada} />
+          <Route path="/naoSelada/editar/:id" component={EditaFonteNaoSelada} />
+          <Route path="/naoSelada/mostrar/:id" component={MostraFonteNaoSelada} />
         </Switch>
       </Container>
       <Footer />
