@@ -125,6 +125,7 @@ class EditaUsuario extends Component {
                         <div className="form-group col-md-3">
                                 <label>Conselho: </label>
                                 <select id="inputState" value={this.state.conselho} name='conselho' className="form-control" onChange={this.onChange}>
+                                    <option name='conselho' selected>Selecione abaixo...</option>
                                     <option name='conselho' value='CRM' >CRM</option>
                                     <option name='conselho' value='CRF' >CRF</option>
                                     <option name='conselho' value='COREN' >COREN</option>

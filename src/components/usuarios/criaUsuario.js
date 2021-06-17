@@ -164,6 +164,7 @@ class CriaUsuario extends Component {
                         <div className="form-group col-md-3">
                                 <label>Conselho: </label>
                                 <select value={this.state.conselho} id="inputState" className="form-control" onChange={this.onChangeConselho}>
+                                    <option selected>Selecione abaixo...</option>
                                     <option value='CRM' >CRM</option>
                                     <option value='CRF' >CRF</option>
                                     <option value='COREN' >COREN</option>
