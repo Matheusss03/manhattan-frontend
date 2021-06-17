@@ -42,36 +42,40 @@ class MostraDiarioCuriometro extends Component {
             <table className="table table-hover">
                 <tbody>
                 <tr>
-                    <td>Ajuste do Zero</td>
+                    <td>Ajuste do Zero (mV)</td>
                     <td>{ diario.ajusteZero }</td>
                 </tr>
                 <tr>
-                    <td>Alta Tensão</td>
+                    <td>Alta Tensão (V)</td>
                     <td>{ diario.altaTensao }</td>
                 </tr>
                 <tr>
-                    <td>Radiação de Fundo</td>
+                    <td>BG (µCi)</td>
                     <td>{ diario.bg }</td>
                 </tr>
                 <tr>
-                    <td>Contaminação do Poço Cheio</td>
+                    <td>Contaminação do Poço Cheio (µCi)</td>
                     <td>{ diario.cheio }</td>
                 </tr>
                 <tr>
-                    <td>Contaminação do Poço Vazio</td>
+                    <td>Contaminação do Poço Vazio (µCi)</td>
                     <td>{ diario.vazio }</td>
                 </tr>
                 <tr>
-                    <td>Bário</td>
+                    <td>Bário (µCi)</td>
                     <td>{ diario.bario }</td>
                 </tr>
                 <tr>
-                    <td>Césio</td>
+                    <td>Césio (µCi)</td>
                     <td>{ diario.cesio }</td>
                 </tr>
                 <tr>
                     <td>Cobalto</td>
                     <td>{ diario.cobalto }</td>
+                </tr>
+                <tr>
+                    <td>Medida do Cobalto</td>
+                    <td>{ diario.medidaCobalto }</td>
                 </tr>
                 <tr>
                     <td>Data da Coleta</td>

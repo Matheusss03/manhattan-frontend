@@ -17,6 +17,7 @@ class CriaDiarioCuriometro extends Component {
         this.onChangeBario = this.onChangeBario.bind(this)
         this.onChangeCesio = this.onChangeCesio.bind(this)
         this.onChangeCobalto = this.onChangeCobalto.bind(this)
+        this.onChangeMedidaCobalto = this.onChangeMedidaCobalto.bind(this)
         this.onChangeData = this.onChangeData.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
   
@@ -29,6 +30,7 @@ class CriaDiarioCuriometro extends Component {
             bario: '',
             cesio: '',
             cobalto: '',
+            medidaCobalto: '',
             data: ''
         }
     }
@@ -81,6 +83,12 @@ class CriaDiarioCuriometro extends Component {
         });
     }
 
+    onChangeMedidaCobalto(e) {
+        this.setState({
+            medidaCobalto: e.target.value
+        });
+    }
+
     onChangeData(e) {
         this.setState({
             data: e.target.value
@@ -99,6 +107,7 @@ class CriaDiarioCuriometro extends Component {
             bario: this.state.bario,
             cesio: this.state.cesio,
             cobalto: this.state.cobalto,
+            medidaCobalto: this.state.medidaCobalto,
             data: this.state.data,
         }
   
@@ -115,6 +124,7 @@ class CriaDiarioCuriometro extends Component {
             bario: '',
             cesio: '',
             cobalto: '',
+            medidaCobalto: '',
             data: ''
         })
     }
@@ -126,25 +136,25 @@ class CriaDiarioCuriometro extends Component {
                 <br/>
                 <form onSubmit={this.onSubmit}>
                     <div class="form-row">
-                        <div className="form-group col-md-3">
-                            <label>Ajuste do Zero: </label>
-                            <input  type="text"
+                        <div className="form-group col-md-2">
+                            <label>Ajuste do Zero (mV): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.ajusteZero}
                                     onChange={this.onChangeAjusteZero}
                                     />
                         </div>
-                        <div className="form-group col-md-3">
-                            <label>Radiação de Fundo: </label>
-                            <input  type="text"
+                        <div className="form-group col-md-2">
+                            <label>BG (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.bg}
                                     onChange={this.onChangeBg}
                                     />
                         </div>
-                        <div className="form-group col-md-3">
-                            <label>Alta Tensão: </label>
-                            <input  type="text"
+                        <div className="form-group col-md-2">
+                            <label>Alta Tensão (V): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.altaTensao}
                                     onChange={this.onChangeAltaTensao}
@@ -153,16 +163,16 @@ class CriaDiarioCuriometro extends Component {
                     </div>
                     <div class="form-row">
                         <div className="form-group col-md-3">
-                            <label>Contaminação Poço Vazio: </label>
-                            <input  type="text"
+                            <label>Contaminação Poço Vazio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.vazio}
                                     onChange={this.onChangeVazio}
                                     />
                         </div>
                         <div className="form-group col-md-3">
-                            <label>Contaminação Poço Cheio: </label>
-                            <input  type="text"
+                            <label>Contaminação Poço Cheio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.cheio}
                                     onChange={this.onChangeCheio}
@@ -171,16 +181,16 @@ class CriaDiarioCuriometro extends Component {
                     </div>
                     <div class="form-row">
                         <div className="form-group col-md-2">
-                            <label>Bário: </label>
-                            <input  type="text"
+                            <label>Bário (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.bario}
                                     onChange={this.onChangeBario}
                                     />
                         </div>
                         <div className="form-group col-md-2">
-                            <label>Césio: </label>
-                            <input  type="text"
+                            <label>Césio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.cesio}
                                     onChange={this.onChangeCesio}
@@ -188,11 +198,19 @@ class CriaDiarioCuriometro extends Component {
                         </div>
                         <div className="form-group col-md-2">
                             <label>Cobalto: </label>
-                            <input  type="text"
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.cobalto}
                                     onChange={this.onChangeCobalto}
                                     />
+                        </div>
+                        <div className="form-group col-md-2">
+                                <label>Medida do Cobalto: </label>
+                                <select value={this.state.medidaCobalto} id="inputState" className="form-control" onChange={this.onChangeMedidaCobalto}>
+                                    <option selected>Selecione abaixo...</option>
+                                    <option value='µCi' >µCi</option>
+                                    <option value='mCi' >mCi</option>
+                                </select>
                         </div>
                     </div>
                     <div class="form-row">

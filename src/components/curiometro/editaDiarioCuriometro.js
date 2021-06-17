@@ -18,6 +18,7 @@ class EditaDiarioCuriometro extends Component {
             bario: '',
             cesio: '',
             cobalto: '',
+            medidaCobalto: '',
             data: ''
         }
     }
@@ -34,6 +35,7 @@ class EditaDiarioCuriometro extends Component {
                     bario: response.data.bario,
                     cesio: response.data.cesio,
                     cobalto: response.data.cobalto,
+                    medidaCobalto: response.data.medidaCobalto,
                     data: response.data.data,
                 })   
             })
@@ -57,6 +59,7 @@ class EditaDiarioCuriometro extends Component {
             bario: this.state.bario,
             cesio: this.state.cesio,
             cobalto: this.state.cobalto,
+            medidaCobalto: this.state.medidaCobalto,
             data: this.state.data,
         };
         console.log(obj);
@@ -77,8 +80,8 @@ class EditaDiarioCuriometro extends Component {
                 <form onSubmit={this.onSubmit}>
                 <div class="form-row">
                         <div className="form-group col-md-3">
-                            <label>Ajuste do Zero: </label>
-                            <input  type="text"
+                            <label>Ajuste do Zero (mV): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='ajusteZero'
                                     value={this.state.ajusteZero}
@@ -86,8 +89,8 @@ class EditaDiarioCuriometro extends Component {
                                     />
                         </div>
                         <div className="form-group col-md-3">
-                            <label>Radiação de Fundo: </label>
-                            <input  type="text"
+                            <label>BG (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='bg'
                                     value={this.state.bg}
@@ -95,8 +98,8 @@ class EditaDiarioCuriometro extends Component {
                                     />
                         </div>
                         <div className="form-group col-md-3">
-                            <label>Alta Tensão: </label>
-                            <input  type="text"
+                            <label>Alta Tensão (V): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='altaTensao'
                                     value={this.state.altaTensao}
@@ -106,8 +109,8 @@ class EditaDiarioCuriometro extends Component {
                     </div>
                     <div class="form-row">
                         <div className="form-group col-md-3">
-                            <label>Contaminação Poço Vazio: </label>
-                            <input  type="text"
+                            <label>Contaminação Poço Vazio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='vazio'
                                     value={this.state.vazio}
@@ -115,8 +118,8 @@ class EditaDiarioCuriometro extends Component {
                                     />
                         </div>
                         <div className="form-group col-md-3">
-                            <label>Contaminação Poço Cheio: </label>
-                            <input  type="text"
+                            <label>Contaminação Poço Cheio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='cheio'
                                     value={this.state.cheio}
@@ -126,8 +129,8 @@ class EditaDiarioCuriometro extends Component {
                     </div>
                     <div class="form-row">
                         <div className="form-group col-md-2">
-                            <label>Bário: </label>
-                            <input  type="text"
+                            <label>Bário (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='bario'
                                     value={this.state.bario}
@@ -135,8 +138,8 @@ class EditaDiarioCuriometro extends Component {
                                     />
                         </div>
                         <div className="form-group col-md-2">
-                            <label>Césio: </label>
-                            <input  type="text"
+                            <label>Césio (µCi): </label>
+                            <input  type="number"
                                     className="form-control"
                                     name='césio'
                                     value={this.state.cesio}
@@ -145,12 +148,20 @@ class EditaDiarioCuriometro extends Component {
                         </div>
                         <div className="form-group col-md-2">
                             <label>Cobalto: </label>
-                            <input  type="text"
+                            <input  type="number"
                                     className="form-control"
                                     name='cobalto'
                                     value={this.state.cobalto}
                                     onChange={this.onChange}
                                     />
+                        </div>
+                        <div className="form-group col-md-2">
+                                <label>Medida do Cobalto: </label>
+                                <select name='medidaCobalto' value={this.state.medidaCobalto} id="inputState" className="form-control" onChange={this.onChange}>
+                                    <option name='medidaCobalto' selected>Selecione abaixo...</option>
+                                    <option name='medidaCobalto' value='µCi' >µCi</option>
+                                    <option name='medidaCobalto' value='mCi' >mCi</option>
+                                </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -168,7 +179,7 @@ class EditaDiarioCuriometro extends Component {
                     <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Atualizar Dado" className="btn btn-primary" />
+                        <input type="submit" value="Salvar Modificações" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
