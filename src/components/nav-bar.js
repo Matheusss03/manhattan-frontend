@@ -354,16 +354,16 @@ const MainNav = () => {
             <Nav.Link as={RouterNavLink} to="/selada/add" className="nav-link">Adicionar Fonte Selada</Nav.Link>
         </NavDropdown.Item>
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Fontes Seladas</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/selada/todos" className="nav-link">Fontes Seladas</Nav.Link>
         </NavDropdown.Item>
 
         <NavDropdown.Divider />
 
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Adicionar Fonte Não Selada</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/naoSelada/add" className="nav-link">Adicionar Fonte Não Selada</Nav.Link>
         </NavDropdown.Item>
         <NavDropdown.Item>
-            <Nav.Link as={RouterNavLink} to="/construcao" className="nav-link">Fontes Não Seladas</Nav.Link>
+            <Nav.Link as={RouterNavLink} to="/naoSelada/todos" className="nav-link">Fontes Não Seladas</Nav.Link>
         </NavDropdown.Item>
     </NavDropdown>
     )}
