@@ -52,10 +52,10 @@ class CriaFonteSelada extends Component {
     }
   
     onChangeNumeroCertificado(e) {
-      this.setState({
-          numeroCertificado: e.target.value
-      });
-    }
+        this.setState({
+            numeroCertificado: e.target.value
+        });
+        }
 
     onChangeMeiaVida(e) {
         this.setState({
@@ -76,9 +76,9 @@ class CriaFonteSelada extends Component {
     }
   
     onChangeUnidadeMedida(e) {
-      this.setState({
-          unidadeMedida: e.target.value
-      });
+        this.setState({
+            unidadeMedida: e.target.value
+        });
     }
 
     onChangeDataCalibracao(e) {
@@ -134,7 +134,7 @@ class CriaFonteSelada extends Component {
                                     onChange={this.onChangeFabricante}
                                     />
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Número de Série: </label>
                             <input  type="text"
                                     className="form-control"
@@ -142,7 +142,7 @@ class CriaFonteSelada extends Component {
                                     onChange={this.onChangeSerie}
                                     />
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Número do Certificado: </label>
                             <input  type="text"
                                     className="form-control"
@@ -152,10 +152,10 @@ class CriaFonteSelada extends Component {
                         </div>
                     </div>
                     <div class="form-row">
-                        
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Radionuclídeo: </label>
                             <select value={this.state.radionuclideo} id="inputState" className="form-control" onChange={this.onChangeRadionuclideo}>
+                                    <option selected>Selecione abaixo...</option>
                                     <option value='Co-57' >Co-57</option>
                                     <option value='Ba-133' >Ba-133</option>
                                     <option value='Cs-137' >Cs-137</option>
@@ -163,17 +163,18 @@ class CriaFonteSelada extends Component {
                                     <option value='Ge-68' >Ge-68</option>
                                 </select>
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Atividade Calibrada: </label>
-                            <input  type="text"
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.atividade}
                                     onChange={this.onChangeAtividade}
                                     />
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-md-2">
                             <label>Unidade de Medida: </label>
                             <select value={this.state.unidadeMedida} id="inputState" className="form-control" onChange={this.onChangeUnidadeMedida}>
+                                    <option selected>Selecione abaixo...</option>
                                     <option value='mCi' >mCi</option>
                                     <option value='µCi' >µCi</option>
                                     <option value='kBq' >kBq</option>
@@ -184,7 +185,7 @@ class CriaFonteSelada extends Component {
                     <div class="form-row">
                         <div className="form-group col-md-2">
                             <label>Meia-Vida: </label>
-                            <input  type="text"
+                            <input  type="number"
                                     className="form-control"
                                     value={this.state.meiaVida}
                                     onChange={this.onChangeMeiaVida}
@@ -193,6 +194,7 @@ class CriaFonteSelada extends Component {
                         <div className="form-group col-md-2">
                             <label>Unidade de Tempo: </label>
                             <select value={this.state.unidadeTempo} id="inputState" className="form-control" onChange={this.onChangeUnidadeTempo}>
+                                    <option selected>Selecione abaixo...</option>
                                     <option value='dias' >dias</option>
                                     <option value='anos' >anos</option>
                                 </select>
@@ -200,7 +202,7 @@ class CriaFonteSelada extends Component {
                     </div>
                     <div class="form-row">
                         <div className="form-group col-md-2">
-                            <label>Data de Cadastro: </label>
+                            <label>Data de Calibração: </label>
                             <input  type="date"
                                     className="form-control"
                                     value={this.state.dataCalibracao}

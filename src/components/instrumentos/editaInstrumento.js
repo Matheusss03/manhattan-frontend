@@ -68,6 +68,7 @@ class EditaInstrumento extends Component {
                         <div className="form-group col-md-4">
                             <label>Máquina: </label>
                             <select value={this.state.maquina} id="inputState" name='maquina' className="form-control" onChange={this.onChange}>
+                                <option selected>Selecione abaixo...</option>
                                 <option name='maquina' value='Medidor de Atividade' >Medidor de Atividade</option>
                                 <option name='maquina' value='Detector GM' >Detector GM</option>
                                 <option name='maquina' value='Gama-Câmara' >Gama-Câmara</option>

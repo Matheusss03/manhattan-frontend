@@ -116,7 +116,7 @@ class EditaInstituicao extends Component {
                                         onChange={this.onChange}
                                         />
                             </div>
-                            <div className="form-group col-md-3">
+                            <div className="form-group col-md-2">
                                 <label>Telefone: </label>
                                 <input  type="text"
                                         className="form-control"

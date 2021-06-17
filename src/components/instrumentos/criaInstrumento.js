@@ -90,6 +90,7 @@ class CriaInstrumento extends Component {
                         <div className="form-group col-md-3">
                             <label>Máquina: </label>
                             <select value={this.state.maquina} id="inputState" className="form-control" onChange={this.onChangeMaquina}>
+                                <option selected>Selecione abaixo...</option>
                                 <option value='Medidor de Atividade' >Medidor de Atividade</option>
                                 <option value='Detector GM' >Detector GM</option>
                                 <option value='Gama-Câmara' >Gama-Câmara</option>
